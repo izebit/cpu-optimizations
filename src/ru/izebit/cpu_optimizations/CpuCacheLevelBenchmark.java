@@ -1,4 +1,4 @@
-package ru.izebit;
+package ru.izebit.cpu_optimizations;
 
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
@@ -64,13 +64,13 @@ public class CpuCacheLevelBenchmark {
     private enum Caches {
         /*
         cache sizes of my cpu:
-            first  32  000         bytes
-            second 256 000         bytes
-            third  8   000 000     bytes
+            first  256  000         bytes
+            second 1    000 000     bytes
+            third  6    000 000     bytes
         */
         FIRST_LEVEL(1_000),
         SECOND_LEVEL(100_000),
-        THIRD_LEVEL(1_000_000),
+        THIRD_LEVEL(500_000),
         RAM_LEVEL(10_000_000);
 
         private final int[] array;

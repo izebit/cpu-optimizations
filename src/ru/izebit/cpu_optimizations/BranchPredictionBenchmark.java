@@ -1,4 +1,4 @@
-package ru.izebit;
+package ru.izebit.cpu_optimizations;
 
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
@@ -35,7 +35,7 @@ public class BranchPredictionBenchmark {
     }
 
     @Benchmark
-    public void invokeWitoutOptimization(final Blackhole blackhole) {
+    public void invokeWithoutOptimization(final Blackhole blackhole) {
         int result = countOfElementsLessThen(unsortedArray.average, unsortedArray.array);
         blackhole.consume(result);
     }

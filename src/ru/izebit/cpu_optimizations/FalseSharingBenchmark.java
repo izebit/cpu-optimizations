@@ -1,4 +1,4 @@
-package ru.izebit;
+package ru.izebit.cpu_optimizations;
 
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
