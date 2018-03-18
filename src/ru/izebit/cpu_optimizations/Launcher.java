@@ -17,6 +17,7 @@ public class Launcher {
                         .include(CpuCacheLevelBenchmark.class.getSimpleName())
                         .include(FalseSharingBenchmark.class.getSimpleName())
                         .include(PrefetchingBenchmark.class.getSimpleName())
+                        .include(LoopUnrollingBenchmark.class.getSimpleName())
                         .build()
         ).run();
 
