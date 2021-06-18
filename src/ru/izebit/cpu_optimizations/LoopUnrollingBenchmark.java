@@ -22,24 +22,30 @@ public class LoopUnrollingBenchmark {
 
     @Setup
     public void init() {
-        this.array = new long[1_000_000];
+        this.array = new long[1_000_001];
         Arrays.fill(array, System.nanoTime());
     }
 
     @Benchmark
     public void invokeWithOptimization(final Blackhole blackhole) {
         int result = 0;
-        for (int i = 0; i < array.length; i += 2)
-            result += (array[i] + array[2]);
+        for (int i = 0; i < array.length - 1; i += 4)
+            result += (
+                    array[i]
+                    + array[i + 1]
+                    + array[i + 2]
+                    + array[i + 3]
+            );
 
+        result += array[array.length - 1];
         blackhole.consume(result);
     }
 
     @Benchmark
     public void invokeWithoutOptimization(final Blackhole blackhole) {
         int result = 0;
-        for (int i = 0; i < array.length; i++)
-            result += array[i];
+        for (final long l : array)
+            result += l;
 
         blackhole.consume(result);
     }
